@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Register Page
+{% endblock %}
+
+
+{% block body %}
+    <div class='container'>
+        <form method="POST" class="form-register" style="color:#00adb5"> <!-- genau unter dieser Zeile kommt ein Schutzmechanismus -->
+        {{ form.hidden_tag() }} <!-- Dieser Befehl versetzt die Form mit einem Token, der vor Hackversuchen wie die CSRF (Cross Site Request Forgery)-->
+        <br>
+        <h1>
+            Please Create your Account
+        </h1>
+        <br>
+        <div class="inner_container">
+            <div class="wide">
+            {{ form.username.label() }}
+            {{ form.username(class="form-control") }}
+            </div>
+            <br>
+            <div class="wide">
+            {{ form.email_address.label() }}
+            {{ form.email_address(class="form-control") }}
+            </div>
+            <br>
+            <div class="wide">
+            {{ form.password1.label() }}
+            {{ form.password1(class="form-control") }}
+            </div>
+            <br>   
+            <div class="wide">
+            {{ form.password2.label() }}
+            {{ form.password2(class="form-control") }}
+            </div>
+
+            <div>
+                <h6>I allready have an account
+                    <button accesskey="s" class="btn reg"><a  href="{{ url_for('login_page') }}">Login</a></button>
+                </h6>
+            </div>
+        </div>
+        <br>
+        {{ form.submit(class='btn') }}
+        </form>
+    </div>
+{% endblock %}

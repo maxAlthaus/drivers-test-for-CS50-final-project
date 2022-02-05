@@ -1,0 +1,86 @@
+{% extends 'layout.html' %}
+        
+{% block title%}
+Psychological Drivers - Test     
+{% endblock %}
+
+
+{% block body %}
+    <div>
+        <button accesskey="s" class="btn ecke"><a href="{{ url_for('logout_page')}}">Logout</a></button>
+    </div>
+    <div class="box">
+        <div class="head_line">
+            <!-- Headline center-->
+            <h1>Psychological Drivers</h1>
+            <!-- name of -->
+            <div id="person"> 
+                <h1>Welcome to your test, {{ current_user.username }}</h1>
+            </div>
+            <!-- as soon as the result will be displayed, the following shows up-->
+            <div id="person_display" class="hide"> 
+                <h1>{{ current_user.username }}, this is your result:</h1>
+            </div>
+        </div>
+        <!-- Anweisung, wie der Antreibertest zu nutzen ist -->
+        <div class="container_anweisung">
+            <ul class="anweisung">
+                <li>As soon as you hit the START-button you will be shown statements.</li>
+                <li>By using one of the buttons 1 - 5 please choose, how much this statement fits you.</li>
+                <li>Please make sure you click the button 1, 2, 3, 4 or 5, then the button "next".</li>
+            </ul>
+            <br>
+            <br>
+            <ul class="anweisung">
+                <li>If you leave out a choice, this test can not be finished.</li> 
+                <li>In this case start again by refreshing the page.</li>
+            </ul>
+            <br>
+            <br>
+            <ul class="anweisung">
+                <li>There is no wrong choice, so please choose spontaniously.</li>
+                <li>As soon as you finish eveluating all statements, the button "Result" will replace "Next".</li>
+                <li>Feel free to click on it in order to see your result.</li>
+            </ul>
+            <button id="startBtn">Start</button> 
+        </div>
+    </div>
+    <div id="container_auswertung" class="hide">
+        <div id="antreiber_box"></div>
+        <div class="erklaerBox hide">
+            <h6>below 30 points   =   You use the strength of this driver. Do not change anything.</h6>
+            <h6>30 - 39 points   =   The stronger this driver, the more easily others will see it. As long as you feel fine at any time and get along with this driver, do not change anthing.</h6>
+            <h6>40 and more points  =   Attention: Usually this driver will be clearly reccognized by others. It might be, that this driver courses health issues. Maybe it is a good idea to change something.</h6>
+            <hr>
+            <h5>In any case you are welcome to talk about your results. Contact me at:           max.trainer@maxalthaus.de         </h5>
+           
+        </div>
+    </div>
+    <!-- Open Mondal Box-->
+    <div id="modalbox" class ="modal backdrop-blur">
+        
+        <!-- Mondal content-->
+        <div class ="modal-content">
+
+            <!-- One statement after the other -->
+            <div id="fragen_im_Modal"></div>
+            <p id="aussage_style">This statement fits me...</p>
+
+            <!-- user may choose here -->
+            <div id="answer_btn" class="btn-grid">
+                <button accesskey="1" id="btn1" class="btn" value="1" >1 - not at all</button>
+                <button accesskey="2" id="btn2" class="btn" value="2" >2 - not really</button>
+                <button accesskey="3" id="btn3" class="btn" value="3" >3 - moderately</button>
+                <button accesskey="4" id="btn4" class="btn" value="4" >4 - pretty well</button>
+                <button accesskey="5" id="btn5" class="btn" value="5" >5 - perfectly</button>
+            </div>
+            <h5 id='countQuestion'>Question 1 / 50</h5>
+            <button accesskey="w" id="nextBtn">next</button>
+            <button accesskey="a" id="auswertung" class="btn hide">Result</button>
+        </div>   
+    </div>
+    <button id="print" class="btn hide noprint">Print Result</button>
+    <div class="subtitle">
+        <p>©2021 - coding by Max Althaus</p>
+    </div>
+{% endblock %}

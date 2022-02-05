@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Login Page
+{% endblock %}
+
+
+{% block body %}
+    <div class='container'>
+        <div class='inner_container'>
+            <form method='POST' class='form-signin' style='color: #00adb5;'>
+            {{ form.hidden_tag() }}
+            <h1>
+                Please Login
+            </h1>
+            <br>
+            {{ form.username.label() }}
+            {{ form.username(class='form-control', placeholder='User Name') }}
+         
+            {{ form.password.label() }}
+            {{ form.password(class='form-control', placeholder='Password') }}
+
+
+            <br>
+
+
+            <div>
+                <h6>Do not have an account?
+                    <button accesskey="s" class="btn reg"><a  style="text-decoration: none;" href="{{ url_for('register_page') }}">Register</a></button>
+                </h6>
+            </div>
+            <br>
+
+            {{ form.submit(class='btn') }}
+            
+            </form>
+        </div>
+    </div>
+{% endblock %}
