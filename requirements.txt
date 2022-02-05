@@ -1,0 +1,41 @@
+To run this webapp use a virtual enviroment
+Go to your main folder, where this folder is located.
+pip install venv --user
+py -m venv .venv
+
+start the virtual enviroment with:
+.\\.venv\Scripts\activate.bat
+
+pip install flask
+pip install flask_login
+pip install flask_bcrypt
+pip install flask_sqlalchemy
+pip install email_validator
+
+
+This webapp includes the following:
+
+html files:
+    - index for displaying the test
+    - login
+    - register
+    - logout
+
+css file for the design
+
+javascript files:
+    - Eventlistener für buttons
+    - display and hide funktions
+    - array including all statements and storing integers (Answer 1 - 5 points)
+    - counter for the statements
+    - funktion that displays statements ramdomly
+    - function for the result
+
+python(flask) files:
+    - application where routs are 
+    - forms for registration and login
+    - models for user Class and its properties
+
+db file:
+    - user to store username, password, email ect.(expendable - test results at different times)
+
